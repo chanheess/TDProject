@@ -72,3 +72,13 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+#  Etc
+.vsconfig
+
+# Folder
+TDProject/Binaries
+TDProject/Intermediate
+TDProject/Saved
+TDProject/Content/__ExternalActors__
+TDProject/Content/__ExternalObjects__
