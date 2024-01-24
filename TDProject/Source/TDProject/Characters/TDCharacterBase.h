@@ -59,6 +59,12 @@ private:
 
 public:
 	UFUNCTION(BlueprintCallable)
+	void MoveForward(float Value);
+
+	UFUNCTION(BlueprintCallable)
+	void MoveRight(float Value);
+
+	UFUNCTION(BlueprintCallable)
 	void CharacterLookAt();
 
 	UFUNCTION(BlueprintCallable)

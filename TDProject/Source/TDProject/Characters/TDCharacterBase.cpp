@@ -62,6 +62,33 @@ void ATDCharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	// Bind functions to input
+	PlayerInputComponent->BindAxis("MoveForward", this, &ATDCharacterBase::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &ATDCharacterBase::MoveRight);
+}
+
+void ATDCharacterBase::MoveForward(float Value)
+{
+	if (FMath::IsNearlyZero(UKismetMathLibrary::VSize(GetVelocity()), 0.001f))
+	{
+		UpdateAnimStateMachine(ECharacterState::Idle);
+	}
+	else
+	{
+		UpdateAnimStateMachine(ECharacterState::Move);
+	}
+}
+
+void ATDCharacterBase::MoveRight(float Value)
+{
+	if (FMath::IsNearlyZero(UKismetMathLibrary::VSize(GetVelocity()), 0.001f))
+	{
+		UpdateAnimStateMachine(ECharacterState::Idle);
+	}
+	else
+	{
+		UpdateAnimStateMachine(ECharacterState::Move);
+	}
 }
 
 void ATDCharacterBase::CharacterLookAt()
@@ -101,6 +128,7 @@ void ATDCharacterBase::UpdateAnimStateMachine(ECharacterState InputAnim)
 
 	if (FBData)
 	{
+		CharacterState = InputAnim;
 		GetSprite()->SetFlipbook(FBData);
 	}
 }

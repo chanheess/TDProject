@@ -1,4 +1,5 @@
 #include "TDPlayerController.h"
+#include "../Characters/TDCharacterBase.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
@@ -33,23 +34,25 @@ void ATDPlayerController::SetupInputComponent()
 
 void ATDPlayerController::MoveForward(float InAxis)
 {
-	APawn* const MyPawn = GetPawn();
+	ATDCharacterBase* const MyCharacter = Cast<ATDCharacterBase>(GetPawn());
 
-	if(MyPawn)
+	if(MyCharacter)
 	{
 		FVector Direction = FVector::ForwardVector;
-		MyPawn->AddMovementInput(Direction, InAxis);
+		MyCharacter->AddMovementInput(Direction, InAxis);
+		MyCharacter->MoveForward(InAxis);
 	}
 }
 
 void ATDPlayerController::MoveRight(float InAxis)
 {
-	APawn* const MyPawn = GetPawn();
+	ATDCharacterBase* const MyCharacter = Cast<ATDCharacterBase>(GetPawn());
 
-	if (MyPawn)
+	if (MyCharacter)
 	{
 		FVector Direction = FVector::RightVector;
-		MyPawn->AddMovementInput(Direction, InAxis);
+		MyCharacter->AddMovementInput(Direction, InAxis);
+		MyCharacter->MoveRight(InAxis);
 	}
 }
 
