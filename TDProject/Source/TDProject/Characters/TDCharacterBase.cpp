@@ -36,11 +36,14 @@ ATDCharacterBase::ATDCharacterBase()
 	TopDownCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	TopDownCameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false;
+
 }
 
 void ATDCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	DefaultRotation = GetSprite()->GetRelativeRotation();
 }
 
 void ATDCharacterBase::Tick(float DeltaTime)
@@ -98,7 +101,7 @@ void ATDCharacterBase::CharacterLookAt()
 		float LookRotation = 0;
 
 		//좌우 방향으로 마우스를 바라보게 한다.
-		if(MousePoint > GetActorLocation().Y)
+		if(MousePoint < GetActorLocation().Y)
 		{
 			LookRotation = TurnRotation;
 		}

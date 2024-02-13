@@ -65,7 +65,7 @@ public:
 	void UpdateAnimStateMachine(ECharacterState InputAnim);
 
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY()
 	FRotator DefaultRotation;
 
 	UPROPERTY(EditAnywhere)
