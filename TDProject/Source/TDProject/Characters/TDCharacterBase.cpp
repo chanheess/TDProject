@@ -14,7 +14,7 @@ ATDCharacterBase::ATDCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	GetCapsuleComponent()->InitCapsuleSize(42.f, 42.0f);
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;

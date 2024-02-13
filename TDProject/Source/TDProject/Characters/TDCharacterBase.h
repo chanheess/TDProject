@@ -2,24 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "PaperCharacter.h"
+#include "../Settings/TDStructDefine.h"
 #include "TDCharacterBase.generated.h"
-
-UENUM(BlueprintType)
-enum class ECharacterState : uint8
-{
-	Idle,
-	Move
-};
-
-USTRUCT(BlueprintType)
-struct FFlipbookData
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	class UPaperFlipbook* AnimData;
-};
-
 
 UCLASS(Blueprintable)
 class TDPROJECT_API ATDCharacterBase : public APaperCharacter
