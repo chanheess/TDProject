@@ -1,11 +1,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../Weapons/TDWeaponBase.h"
+#include "../Weapons/WeaponBase.h"
 #include "RangeWeaponBase.generated.h"
 
 UCLASS(Blueprintable)
-class TDPROJECT_API ARangeWeaponBase : public ATDWeaponBase
+class TDPROJECT_API ARangeWeaponBase : public AWeaponBase
 {
 	GENERATED_BODY()
 	

@@ -66,6 +66,6 @@ public:
 	UClass* WeaponType;
 
 	UPROPERTY()
-	class ATDWeaponBase* Weapon;
+	class AWeaponBase* Weapon;
 	
 };

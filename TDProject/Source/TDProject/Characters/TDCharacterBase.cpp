@@ -9,7 +9,7 @@
 #include "Engine/World.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "PaperFlipbookComponent.h"
-#include "../Weapons/TDWeaponBase.h"
+#include "../Weapons/WeaponBase.h"
 
 ATDCharacterBase::ATDCharacterBase()
 {
@@ -144,7 +144,7 @@ void ATDCharacterBase::SpawnWeapon()
 
 	if (WeaponType)
 	{
-		Weapon = GetWorld()->SpawnActor<ATDWeaponBase>(WeaponType, SpawnLocation, SpawnRotation, SpawnParams);
+		Weapon = GetWorld()->SpawnActor<AWeaponBase>(WeaponType, SpawnLocation, SpawnRotation, SpawnParams);
 	}
 
 	if (Weapon)
