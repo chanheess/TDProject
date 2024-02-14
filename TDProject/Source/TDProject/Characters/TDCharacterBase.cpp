@@ -9,6 +9,7 @@
 #include "Engine/World.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "PaperFlipbookComponent.h"
+#include "../Weapons/TDWeaponBase.h"
 
 ATDCharacterBase::ATDCharacterBase()
 {
@@ -37,6 +38,7 @@ ATDCharacterBase::ATDCharacterBase()
 	TopDownCameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false;
 
+
 }
 
 void ATDCharacterBase::BeginPlay()
@@ -44,11 +46,14 @@ void ATDCharacterBase::BeginPlay()
 	Super::BeginPlay();
 
 	DefaultRotation = GetSprite()->GetRelativeRotation();
+	SpawnWeapon();
 }
 
 void ATDCharacterBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	CharacterLookAt();
 }
 
 void ATDCharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -122,5 +127,26 @@ void ATDCharacterBase::UpdateAnimStateMachine(ECharacterState InputAnim)
 	{
 		CharacterState = InputAnim;
 		GetSprite()->SetFlipbook(FBData);
+	}
+}
+
+void ATDCharacterBase::SpawnWeapon()
+{
+	// Spawn the weapon
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = this;
+	SpawnParams.Instigator = GetInstigator();
+
+	FVector SpawnLocation = GetActorLocation();
+	FRotator SpawnRotation = GetActorRotation();
+
+	if (WeaponType)
+	{
+		Weapon = GetWorld()->SpawnActor<ATDWeaponBase>(WeaponType, SpawnLocation, SpawnRotation, SpawnParams);
+	}
+
+	if (Weapon)
+	{
+		Weapon->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetIncludingScale, "None");
 	}
 }

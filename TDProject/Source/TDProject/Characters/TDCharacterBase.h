@@ -42,11 +42,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void MoveRight(float Value);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void CharacterLookAt();
 
 	UFUNCTION(BlueprintCallable)
 	void UpdateAnimStateMachine(ECharacterState InputAnim);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnWeapon();
 
 public:
 	UPROPERTY()
@@ -58,7 +61,13 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ECharacterState CharacterState;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = DefaultSetting)
 	TMap<ECharacterState, FFlipbookData> AnimFlipbooks;
 
+	UPROPERTY(EditAnywhere, Category = DefaultSetting)
+	UClass* WeaponType;
+
+	UPROPERTY()
+	class ATDWeaponBase* Weapon;
+	
 };
