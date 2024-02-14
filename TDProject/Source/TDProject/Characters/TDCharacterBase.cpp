@@ -15,7 +15,7 @@ ATDCharacterBase::ATDCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	GetCapsuleComponent()->InitCapsuleSize(42.f, 42.0f);
+	GetCapsuleComponent()->InitCapsuleSize(5.f, 5.f);
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -26,12 +26,14 @@ ATDCharacterBase::ATDCharacterBase()
 	GetCharacterMovement()->bConstrainToPlane = true;
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->MaxWalkSpeed = 200.f;
+	GetCharacterMovement()->MaxWalkSpeedCrouched = 100.f;
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->SetUsingAbsoluteRotation(true);
-	CameraBoom->TargetArmLength = 800.f;
-	CameraBoom->SetRelativeRotation(FRotator(0.f, -90.f, 0.f));
+	CameraBoom->TargetArmLength = 400.f;
+	CameraBoom->SetRelativeRotation(FRotator(-90.f, 0.f, 0.f));
 	CameraBoom->bDoCollisionTest = false;
 
 	TopDownCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
