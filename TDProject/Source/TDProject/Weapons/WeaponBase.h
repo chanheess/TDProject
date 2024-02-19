@@ -25,7 +25,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	float Damage = 10.f;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY()
 	class USceneComponent* RootSceneComp;
 
 	UPROPERTY(EditAnywhere)
