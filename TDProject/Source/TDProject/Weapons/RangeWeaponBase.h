@@ -17,9 +17,15 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+public:
+	UFUNCTION(BlueprintCallable)
+	void Shoot();
 
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UPaperSpriteComponent* MuzzleSprite;
+
+	UPROPERTY(EditAnywhere, Category = DefaultSetting)
+	TSubclassOf<class ABulletBase> BulletType;
 
 };

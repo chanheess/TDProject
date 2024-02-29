@@ -2,6 +2,8 @@
 #include "Components/BoxComponent.h"
 #include "PaperSpriteComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Kismet/KismetMathLibrary.h"
+
 
 ABulletBase::ABulletBase()
 {
@@ -15,17 +17,14 @@ ABulletBase::ABulletBase()
 	RootComponent = RootSceneComp;
 	BoxCollision->SetupAttachment(RootSceneComp);
 	ProjectileSprite->SetupAttachment(RootSceneComp);
-
-	ProjectileMovement->ProjectileGravityScale = 0.0f;
-	ProjectileMovement->InitialSpeed = 2e+4f;
-	ProjectileMovement->MaxSpeed = 2e+4f;
 }
 
 void ABulletBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	SetLifeSpan(3.0f);
+
+	SetProjectileVelocity();
+	SetLifeSpan(1.0f);
 }
 
 
@@ -34,9 +33,8 @@ void ABulletBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ABulletBase::SetProjectileVelocity(FVector InStart, FVector InEnd, float InIntense)
+void ABulletBase::SetProjectileVelocity()
 {
-	FVector Direction = (InEnd - InStart).GetSafeNormal();
-	ProjectileMovement->Velocity = Direction * ProjectileMovement->InitialSpeed;
+	ProjectileMovement->Velocity = GetActorForwardVector() * ProjectileMovement->InitialSpeed;
 }
 

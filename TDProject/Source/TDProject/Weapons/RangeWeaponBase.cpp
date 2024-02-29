@@ -1,4 +1,5 @@
 #include "../Weapons/RangeWeaponBase.h"
+#include "../Weapons/BulletBase.h"
 #include "PaperSpriteComponent.h"
 
 ARangeWeaponBase::ARangeWeaponBase()
@@ -19,4 +20,20 @@ void ARangeWeaponBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ARangeWeaponBase::Shoot()
+{
+	// Spawn Bullet
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = this;
+	SpawnParams.Instigator = GetInstigator();
+
+	FVector SpawnLocation = MuzzleSprite->GetRelativeLocation();
+	FRotator SpawnRotation = GetActorRotation();
+
+	if (BulletType)
+	{
+		ABulletBase* Bullet = GetWorld()->SpawnActor<ABulletBase>(BulletType, MuzzleSprite->GetComponentTransform(), SpawnParams);
+	}
 }

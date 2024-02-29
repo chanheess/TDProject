@@ -18,7 +18,7 @@ protected:
 
 public:
 	UFUNCTION()
-	void SetProjectileVelocity(FVector InStart, FVector InEnd, float InIntense);
+	void SetProjectileVelocity();
 
 public:
 	UPROPERTY(EditAnywhere)
@@ -30,10 +30,8 @@ public:
 	UPROPERTY(VisibleDefaultsOnly)
 	class UBoxComponent* BoxCollision;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UProjectileMovementComponent* ProjectileMovement;
-
-
 
 	//총알은 총알 본연의 기능에만 충실하게 만들고
 	//무기에 장탄수등들의 기능을 추가한다.
