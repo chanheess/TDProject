@@ -1,16 +1,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../Weapons/WeaponBase.h"
-#include "RangeWeaponBase.generated.h"
+#include "../Weapons/TDWeaponBase.h"
+#include "TDRangeWeaponBase.generated.h"
 
 UCLASS(Blueprintable)
-class TDPROJECT_API ARangeWeaponBase : public AWeaponBase
+class TDPROJECT_API ATDRangeWeaponBase : public ATDWeaponBase
 {
 	GENERATED_BODY()
 	
 public:	
-	ARangeWeaponBase();
+	ATDRangeWeaponBase();
 
 	virtual void Tick(float DeltaTime) override;
 
@@ -26,6 +26,6 @@ public:
 	class UPaperSpriteComponent* MuzzleSprite;
 
 	UPROPERTY(EditAnywhere, Category = DefaultSetting)
-	TSubclassOf<class ABulletBase> BulletType;
+	TSubclassOf<class ATDBulletBase> BulletType;
 
 };

@@ -2,15 +2,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "WeaponBase.generated.h"
+#include "TDWeaponBase.generated.h"
 
 UCLASS()
-class TDPROJECT_API AWeaponBase : public AActor
+class TDPROJECT_API ATDWeaponBase : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
-	AWeaponBase();
+	ATDWeaponBase();
 
 	virtual void Tick(float DeltaTime) override;
 

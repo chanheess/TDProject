@@ -63,9 +63,9 @@ public:
 	TMap<ECharacterState, FFlipbookData> AnimFlipbooks;
 
 	UPROPERTY(EditAnywhere, Category = DefaultSetting)
-	TSubclassOf<class AWeaponBase> WeaponType;
+	TSubclassOf<class ATDWeaponBase> WeaponType;
 
 	UPROPERTY(BlueprintReadWrite)
-	class AWeaponBase* Weapon;
+	class ATDWeaponBase* Weapon;
 	
 };

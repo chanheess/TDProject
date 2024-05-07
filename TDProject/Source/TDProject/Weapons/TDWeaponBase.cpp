@@ -1,10 +1,10 @@
-#include "../Weapons/WeaponBase.h"
+#include "../Weapons/TDWeaponBase.h"
 #include "PaperSpriteComponent.h"
 #include "Components/BoxComponent.h"
 #include "../Characters/TDCharacterBase.h"
 #include "Kismet/KismetMathLibrary.h"
 
-AWeaponBase::AWeaponBase()
+ATDWeaponBase::ATDWeaponBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -17,19 +17,19 @@ AWeaponBase::AWeaponBase()
 	WeaponSprite->SetupAttachment(RootSceneComp);
 }
 
-void AWeaponBase::BeginPlay()
+void ATDWeaponBase::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void AWeaponBase::Tick(float DeltaTime)
+void ATDWeaponBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	LookAtMouse();
 }
 
-void AWeaponBase::LookAtMouse()
+void ATDWeaponBase::LookAtMouse()
 {
 	ATDCharacterBase* MyCharacter = Cast<ATDCharacterBase>(GetAttachParentActor());
 

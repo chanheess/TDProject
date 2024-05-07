@@ -1,11 +1,11 @@
-#include "BulletBase.h"
+#include "TDBulletBase.h"
 #include "Components/BoxComponent.h"
 #include "PaperSpriteComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
 
-ABulletBase::ABulletBase()
+ATDBulletBase::ATDBulletBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -19,7 +19,7 @@ ABulletBase::ABulletBase()
 	ProjectileSprite->SetupAttachment(RootSceneComp);
 }
 
-void ABulletBase::BeginPlay()
+void ATDBulletBase::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -28,12 +28,12 @@ void ABulletBase::BeginPlay()
 }
 
 
-void ABulletBase::Tick(float DeltaTime)
+void ATDBulletBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
 
-void ABulletBase::SetProjectileVelocity()
+void ATDBulletBase::SetProjectileVelocity()
 {
 	ProjectileMovement->Velocity = GetActorForwardVector() * ProjectileMovement->InitialSpeed;
 }

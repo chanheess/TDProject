@@ -2,15 +2,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BulletBase.generated.h"
+#include "TDBulletBase.generated.h"
 
 UCLASS()
-class TDPROJECT_API ABulletBase : public AActor
+class TDPROJECT_API ATDBulletBase : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
-	ABulletBase();
+	ATDBulletBase();
 	virtual void Tick(float DeltaTime) override;
 
 protected:

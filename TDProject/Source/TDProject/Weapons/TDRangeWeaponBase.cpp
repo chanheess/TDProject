@@ -1,8 +1,8 @@
-#include "../Weapons/RangeWeaponBase.h"
-#include "../Weapons/BulletBase.h"
+#include "../Weapons/TDRangeWeaponBase.h"
+#include "../Weapons/TDBulletBase.h"
 #include "PaperSpriteComponent.h"
 
-ARangeWeaponBase::ARangeWeaponBase()
+ATDRangeWeaponBase::ATDRangeWeaponBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -10,19 +10,19 @@ ARangeWeaponBase::ARangeWeaponBase()
 	MuzzleSprite->SetupAttachment(WeaponSprite, "Muzzle");
 }
 
-void ARangeWeaponBase::BeginPlay()
+void ATDRangeWeaponBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
-void ARangeWeaponBase::Tick(float DeltaTime)
+void ATDRangeWeaponBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-void ARangeWeaponBase::Shoot()
+void ATDRangeWeaponBase::Shoot()
 {
 	// Spawn Bullet
 	FActorSpawnParameters SpawnParams;
@@ -34,6 +34,6 @@ void ARangeWeaponBase::Shoot()
 
 	if (BulletType)
 	{
-		ABulletBase* Bullet = GetWorld()->SpawnActor<ABulletBase>(BulletType, MuzzleSprite->GetComponentTransform(), SpawnParams);
+		ATDBulletBase* Bullet = GetWorld()->SpawnActor<ATDBulletBase>(BulletType, MuzzleSprite->GetComponentTransform(), SpawnParams);
 	}
 }
