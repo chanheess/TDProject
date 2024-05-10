@@ -65,3 +65,8 @@ void ATDWeaponBase::LookAtMouse()
 		WeaponSprite->SetRelativeRotation(FRotator(MyCharacter->DefaultRotation.Pitch, LookRotation.Yaw, MyCharacter->DefaultRotation.Roll + LookRotationY));
 	}
 }
+
+void ATDWeaponBase::Shoot()
+{
+	//자식에서 weapon별 기능 작성
+}

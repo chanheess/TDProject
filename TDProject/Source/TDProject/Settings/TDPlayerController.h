@@ -35,6 +35,9 @@ public:
 	void MoveRight(float InAxis);
 
 	UFUNCTION()
+	void Shoot();
+
+	UFUNCTION()
 	void LookMouseCursor();
 
 };

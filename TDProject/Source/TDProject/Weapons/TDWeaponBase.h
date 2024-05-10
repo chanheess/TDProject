@@ -21,6 +21,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void LookAtMouse();
 
+	UFUNCTION(BlueprintCallable)
+	virtual void Shoot();
+
 public:
 	UPROPERTY(EditAnywhere)
 	float Damage = 10.f;

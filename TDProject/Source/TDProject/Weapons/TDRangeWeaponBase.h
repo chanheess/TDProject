@@ -18,8 +18,7 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	UFUNCTION(BlueprintCallable)
-	void Shoot();
+	virtual void Shoot() override;
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

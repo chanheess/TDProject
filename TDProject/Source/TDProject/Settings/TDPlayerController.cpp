@@ -1,6 +1,7 @@
 #include "TDPlayerController.h"
 #include "../Characters/TDCharacterBase.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "../Weapons/TDWeaponBase.h"
 
 // Sets default values
 ATDPlayerController::ATDPlayerController()
@@ -29,7 +30,7 @@ void ATDPlayerController::SetupInputComponent()
 
 	InputComponent->BindAxis("MoveForward", this, &ATDPlayerController::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &ATDPlayerController::MoveRight);
-	
+	InputComponent->BindAction("Shoot", EInputEvent::IE_Pressed, this, &ATDPlayerController::Shoot);
 }
 
 void ATDPlayerController::MoveForward(float InAxis)
@@ -53,6 +54,19 @@ void ATDPlayerController::MoveRight(float InAxis)
 		FVector Direction = FVector::RightVector;
 		MyCharacter->AddMovementInput(Direction, InAxis);
 		MyCharacter->MoveRight(InAxis);
+	}
+}
+
+void ATDPlayerController::Shoot()
+{
+	ATDCharacterBase* const MyCharacter = Cast<ATDCharacterBase>(GetPawn());
+
+	if (MyCharacter)
+	{
+		if (IsValid(MyCharacter->GetWeapon()))
+		{
+			MyCharacter->GetWeapon()->Shoot();
+		}
 	}
 }
 

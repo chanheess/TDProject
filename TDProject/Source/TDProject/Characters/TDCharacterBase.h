@@ -33,6 +33,11 @@ private:
 
 #pragma endregion Camera
 
+private:
+	UFUNCTION(BlueprintCallable)
+	void SpawnWeapon();
+
+//Axis, Action, state
 public:
 	UFUNCTION(BlueprintCallable)
 	void MoveForward(float Value);
@@ -46,8 +51,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UpdateAnimStateMachine(ECharacterState InputAnim);
 
+public:
 	UFUNCTION(BlueprintCallable)
-	void SpawnWeapon();
+	class ATDWeaponBase* GetWeapon();
 
 public:
 	UPROPERTY()

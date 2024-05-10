@@ -132,6 +132,11 @@ void ATDCharacterBase::UpdateAnimStateMachine(ECharacterState InputAnim)
 	}
 }
 
+ATDWeaponBase* ATDCharacterBase::GetWeapon()
+{
+	return Weapon;
+}
+
 void ATDCharacterBase::SpawnWeapon()
 {
 	// Spawn the weapon
