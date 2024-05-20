@@ -1,4 +1,4 @@
-#include "NPCs/TDNPCBase.h"
+#include "../NPCs/TDNPCBase.h"
 #include "TDNPCBase.h"
 
 ATDNPCBase::ATDNPCBase()

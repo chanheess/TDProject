@@ -19,41 +19,12 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-#pragma region Camera
 public:
-	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-
-private:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class UCameraComponent* TopDownCameraComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class USpringArmComponent* CameraBoom;
-
-#pragma endregion Camera
-
-private:
-	UFUNCTION(BlueprintCallable)
-	void SpawnWeapon();
-
-//Axis, Action, state
-public:
-	UFUNCTION(BlueprintCallable)
-	void MoveForward(float Value);
-
-	UFUNCTION(BlueprintCallable)
-	void MoveRight(float Value);
-
 	UFUNCTION()
-	void CharacterLookAt();
+	virtual void CharacterLookAt();
 
 	UFUNCTION(BlueprintCallable)
 	void UpdateAnimStateMachine(ECharacterState InputAnim);
-
-public:
-	UFUNCTION(BlueprintCallable)
-	class ATDWeaponBase* GetWeapon();
 
 public:
 	UPROPERTY()
@@ -67,11 +38,4 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = DefaultSetting)
 	TMap<ECharacterState, FFlipbookData> AnimFlipbooks;
-
-	UPROPERTY(EditAnywhere, Category = DefaultSetting)
-	TSubclassOf<class ATDWeaponBase> WeaponType;
-
-	UPROPERTY(BlueprintReadWrite)
-	class ATDWeaponBase* Weapon;
-	
 };

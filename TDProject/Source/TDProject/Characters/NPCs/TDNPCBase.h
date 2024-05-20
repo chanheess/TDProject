@@ -2,10 +2,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "../TDCharacterBase.h"
 #include "TDNPCBase.generated.h"
 
 UCLASS()
-class TDPROJECT_API ATDNPCBase : public AActor
+class TDPROJECT_API ATDNPCBase : public ATDCharacterBase
 {
 	GENERATED_BODY()
 	
