@@ -1,5 +1,6 @@
 #include "../NPCs/TDNPCBase.h"
 #include "TDNPCBase.h"
+#include "TDAIControllerBase.h"
 
 ATDNPCBase::ATDNPCBase()
 {
