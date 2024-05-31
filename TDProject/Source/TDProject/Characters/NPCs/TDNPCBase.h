@@ -17,13 +17,8 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-public:	
-	UFUNCTION()
-	void Move();
-
-
-
 };
 
 
 //기본 NPC는 움직임이 곧 공격이다.
+//움직여야되는데 비헤이비어 트리를 이용해서 움직이게 해보자
