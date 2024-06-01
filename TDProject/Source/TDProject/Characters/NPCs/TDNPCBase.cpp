@@ -1,6 +1,6 @@
 #include "../NPCs/TDNPCBase.h"
-#include "TDNPCBase.h"
 #include "TDAIControllerBase.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 ATDNPCBase::ATDNPCBase()
 {
@@ -17,5 +17,10 @@ void ATDNPCBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ATDNPCBase::UpdateWalkSpeed(float WalkSpeed)
+{
+    GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
 }
 

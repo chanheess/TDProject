@@ -14,6 +14,9 @@ public:
 	ATDNPCBase();
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	void UpdateWalkSpeed(float WalkSpeed);
+
 protected:
 	virtual void BeginPlay() override;
 
